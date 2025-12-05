@@ -19,6 +19,7 @@ This repository is a growing collection of clear, practical, engineer-friendly t
 	- Readable, maintainable, and well-commented code
 9. Add proper filename with numbering prefix to each tutorial file for easy identification and ordering and add string description at the top of each file. it will help to generate the tutorials index in README automatically.
 10. Add test cases for each tutorial file where applicable.
+11. Run the list_scripts.py to update the README index after adding new tutorial files. 
 ---
 
 ## Tutorials Index
