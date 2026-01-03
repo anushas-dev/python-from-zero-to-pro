@@ -24,8 +24,12 @@ This repository is a growing collection of clear, practical, engineer-friendly t
 
 ## Tutorials Index
 
-| Filename | Description |
-|----------|-------------|
-| 001_hello_world.py | Basic Hello World Program in Python - This script prints "Hello, World!" to the console. |
+| Script | Description |
+|--------|-------------|
+| [004_vowel_consonants.py](basic/004_vowel_consonants.py) | Basic example demonstrating vowel and consonant identification in a string. |
+| [001_hello_world.py](basic/001_hello_world.py) | Basic Hello World Program in Python - This script prints "Hello, World!" to the console. |
+| [005_join_list_items.py](basic/005_join_list_items.py) | This script takes a hyphen-separated list of hobbies from user input, |
+| [002_inplace_swap.py](basic/002_inplace_swap.py) | Basic In-Place Swap Program in Python - This script swaps the values of two variables without using a temporary variable. |
+| [003_fstrings.py](basic/003_fstrings.py) | Example of using f-strings for formatted string literals in Python. |
 
 

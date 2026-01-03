@@ -4,3 +4,6 @@ Basic Hello World Program in Python - This script prints "Hello, World!" to the 
 
 def hello_world():
     print("Hello, World!")
+
+if __name__ == "__main__":
+    hello_world()
