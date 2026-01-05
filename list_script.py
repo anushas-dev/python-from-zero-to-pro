@@ -1,5 +1,6 @@
 import os
 import ast
+import re
 from typing import List, Dict
 
 BASE_DIRS = ["basic", "intermediate", "advanced"]
@@ -13,6 +14,20 @@ def get_py_files(base_dirs: List[str]) -> List[str]:
             for file in files:
                 if file.endswith(".py"):
                     py_files.append(os.path.join(root, file))
+    # Deterministic ordering: sort by base-dir order, numeric filename prefix, then filename
+    def sort_key(path: str):
+        parts = os.path.normpath(path).split(os.sep)
+        base = parts[0] if parts else path
+        try:
+            base_index = base_dirs.index(base)
+        except ValueError:
+            base_index = len(base_dirs)
+        filename = os.path.basename(path)
+        m = re.match(r"^(\d+)", filename)
+        num = int(m.group(1)) if m else float('inf')
+        return (base_index, num, filename)
+
+    py_files.sort(key=sort_key)
     return py_files
 
 def extract_header(file_path: str) -> str:
