@@ -61,15 +61,18 @@ def main():
     with open(readme_path, "r", encoding="utf-8") as f:
         readme = f.read()
 
-    # Replace or insert Tutorials Index section
+    # Replace or insert Tutorials Index section.
+    # Match from the '## Tutorials Index' header up to the next top-level '## ' header or EOF.
     import re
-    pattern = r'(## Tutorials Index\n)([\s\S]*?)(\n\n|\Z)'
-    replacement = f"## Tutorials Index\n\n{table}\n"
+    pattern = r'(?ms)^## Tutorials Index\b.*?(?=^##\s|\Z)' 
+    replacement = f"## Tutorials Index\n\n{table}"
     if re.search(pattern, readme):
         readme = re.sub(pattern, replacement, readme)
     else:
-        # If not found, append at the end
-        readme += f"\n{replacement}"
+        # Ensure file ends with a newline before appending
+        if not readme.endswith("\n"):
+            readme += "\n"
+        readme += f"\n{replacement}\n"
 
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(readme)
